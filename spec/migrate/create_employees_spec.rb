@@ -13,12 +13,12 @@ describe 'Employee migration' do
 
     before(:context) do
       # when -> exec migrate
-      plsql.execute <<-SQL
-        CREATE TABLE EMPLOYEES(ID INTEGER)
-      SQL
-      plsql.execute <<-SQL
-        ALTER TABLE EMPLOYEES ADD CONSTRAINT EMPLOYEES_PK PRIMARY KEY (ID)
-      SQL
+      # plsql.execute <<-SQL
+      #   CREATE TABLE EMPLOYEES(ID INTEGER)
+      # SQL
+      # plsql.execute <<-SQL
+      #   ALTER TABLE EMPLOYEES ADD CONSTRAINT EMPLOYEES_PK PRIMARY KEY (ID)
+      # SQL
     end
 
     it 'table Employee should be created' do
