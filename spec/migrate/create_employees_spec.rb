@@ -12,7 +12,7 @@ describe 'Employee migration' do
   context 'when I execute migrate' do
 
     before(:context) do
-      # when -> exec migrate
+      # when -> exec migration
       # plsql.execute <<-SQL
       #   CREATE TABLE EMPLOYEES(ID INTEGER)
       # SQL
@@ -32,7 +32,7 @@ describe 'Employee migration' do
     end
 
     after(:context) do
-      # after all -> exec fallback
+      # after all -> exec migration rollback
       plsql.execute <<-SQL
         DROP TABLE EMPLOYEES
       SQL
