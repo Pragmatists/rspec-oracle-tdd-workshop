@@ -45,3 +45,19 @@ def connect_all(database_config)
 end
 
 connect_all(database_config)
+
+at_exit do
+  get_db_connections.each do |name|
+    if ENV['PLSQL_COVERAGE']
+      PLSQL::Coverage.stop(name)
+      coverage_directory = name == :default ? ENV['PLSQL_COVERAGE'] : "#{ENV['PLSQL_COVERAGE']}/#{name}"
+      options = {:directory => coverage_directory}
+      options[:ignore_schemas] = ENV['PLSQL_COVERAGE_IGNORE_SCHEMAS'].split(',') if ENV['PLSQL_COVERAGE_IGNORE_SCHEMAS']
+      options[:like] = ENV['PLSQL_COVERAGE_LIKE'].split(',') if ENV['PLSQL_COVERAGE_LIKE']
+      PLSQL::Coverage.report name, options
+      PLSQL::Coverage.cleanup name
+    end
+    plsql(name).logoff
+  end
+end
+

@@ -8,8 +8,7 @@ Given(/^(?:Employee )?"([^"]*)" with salary "([^"]*)"$/) do |name, salary|
 end
 
 When(/^I raise employee salaries by "([^"]*)"(?: pct)?$/) do |percent|
-  puts percent.to_i
-  plsql.hr.raise_salaries(10)
+  plsql.hr.raise_salaries(percent.to_i)
 end
 
 
