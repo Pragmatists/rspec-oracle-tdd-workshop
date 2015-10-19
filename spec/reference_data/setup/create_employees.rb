@@ -47,7 +47,7 @@ module EmployeeData
                                employee_id: plsql.hr.employees_seq.nextval,
                                email:          'ItWithSalary80',
                                salary: 80,
-                               department_id: plsql.hr.departments.first(department_name:'IT')[:department_id]
+                               department_id: plsql.hr.departments.first(department_name:'IT')[:@id]
                                }),
     ]
     plsql.hr.employees.insert emps
