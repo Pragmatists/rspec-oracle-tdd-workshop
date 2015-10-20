@@ -1,6 +1,7 @@
 require "rubygems"
 require "ruby-plsql-spec"
 require "yaml"
+require "yarjuf"
 
 # create all connections specified in database.yml file
 database_config_file = File.expand_path('../database.yml', __FILE__)
