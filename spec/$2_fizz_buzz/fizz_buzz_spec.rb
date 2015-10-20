@@ -3,21 +3,7 @@ require_relative '../spec_helper'
 
 
 describe 'Fizz Buzz' do
-
-  [
-      [1, '1'],
-      [2, '2'],
-      [3, 'Fizz'],
-      [6, 'Fizz'],
-      [5, 'Buzz'],
-      [10, 'Buzz'],
-      [15, 'FizzBuzz'],
-  ].each do |number, expected|
-
-    it "should give #{expected} for #{number}" do
-      expect(plsql.fizz_buzz_answer_for(number)).to eq (expected)
-    end
-
+  it 'should give 1 for 1' do
+    expect(plsql.fizz_buzz_answer_for(1)).to eq ('1')
   end
-
 end
