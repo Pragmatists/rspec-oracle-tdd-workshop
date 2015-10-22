@@ -27,15 +27,18 @@ module EmployeeData
     emps = [
         default_employee.merge({
             employee_id: plsql.hr.employees_seq.nextval,
+            first_name:     'Alice',
             last_name:      'With salary 100',
             email:          'WithSal100',
-            salary:         100
+            salary:         100,
         }),
         default_employee.merge({
             employee_id: plsql.hr.employees_seq.nextval,
+            first_name:     'Bob',
             last_name:      'With max salary 1000',
             email:          'WithMaxSal_1000',
             job_id:         plsql.hr.jobs.first(max_salary:1000)[:job_id],
+            salary:         980,
         }),
         default_employee.merge({
                                employee_id: plsql.hr.employees_seq.nextval,
