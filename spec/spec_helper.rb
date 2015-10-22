@@ -1,4 +1,5 @@
 require_relative '../config/common_helper'
+require "yarjuf"
 
 RSpec.configure do |config|
   config.before(:each) do
